@@ -4,7 +4,7 @@ import React from "react";
 import HeroSection from "./components/HeroSection/HeroSection";
 
 function LaunchesScreen() {
-  const loggedIn = false;
+  const loggedIn = true;
   return (
     <Layout loggedIn={loggedIn}>
       <HeroSection />

@@ -1,7 +1,3 @@
-import { useState } from "react";
-
-interface Props {}
-
 const LoginForm: React.FC<Props> = () => {
   return (
     <form>
