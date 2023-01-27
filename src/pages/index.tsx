@@ -1,5 +1,4 @@
-import LandingPage from "@/screens/homeScreen/HomeScreen";
-import NavBar from "@/shared components/Navigation/nav";
+import LandingPage from "@/screens/HomeScreen/HomeScreen";
 
 export default function Home() {
   return (

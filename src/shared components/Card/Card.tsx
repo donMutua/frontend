@@ -35,7 +35,7 @@ function Card({ mission_name, launch_date_local, flikr_image }: CardProps) {
           data-mdb-ripple="true"
           data-mdb-ripple-color="light"
         >
-          VIEW LAUNCHES
+          VIEW LAUNCH
         </button>
       </div>
     </div>
