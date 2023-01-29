@@ -15,6 +15,7 @@ import {
 } from "@/store/launchSlice/launchesListSlice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
+import { withAuth } from "@/hoc/withAuth";
 
 function LaunchesScreen() {
   const isAuthenticated = useSelector(
@@ -75,4 +76,4 @@ function LaunchesScreen() {
   );
 }
 
-export default LaunchesScreen;
+export default withAuth(LaunchesScreen);
