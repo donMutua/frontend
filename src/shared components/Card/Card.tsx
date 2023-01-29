@@ -8,7 +8,7 @@ interface CardProps {
 }
 
 const fallBackImage =
-  "https://images.unsplash.com/photo-1614642240262-a452c2c11724?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2022&q=80";
+  "https://images.unsplash.com/photo-1614728263952-84ea256f9679?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1308&q=80";
 
 function Card({ mission_name, launch_date_local, flikr_image }: CardProps) {
   const handleError = (event: React.SyntheticEvent<HTMLImageElement>) => {

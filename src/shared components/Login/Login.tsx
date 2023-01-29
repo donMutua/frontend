@@ -1,29 +1,72 @@
-const LoginForm: React.FC<Props> = () => {
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/router";
+
+import {
+  loginStart,
+  loginSuccess,
+  loginFail,
+} from "../../store/authSlice/authSlice";
+import { login as apiLogin } from "../../api/api";
+import Router from "next/router";
+
+interface FormData {
+  email: string;
+  password: string;
+}
+
+const LoginForm = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FormData>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onChange",
+  });
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      dispatch(loginStart());
+      const response = await apiLogin(data.email, data.password);
+      dispatch(loginSuccess(response.token));
+      router.push("/launches");
+    } catch (error: any) {
+      dispatch(loginFail(error.message));
+    }
+  };
+
   return (
-    <form>
-      <div className="mb-4 text-center">
-        <h2 className="text-lg mb-6 font-bold">LOGIN</h2>
-        <p className="font-light text-color-600 mb-16">
-          Please enter your e-mail and password:
-        </p>
-      </div>
-      <div className="mb-4">
-        <input
-          className="border border-gray-400 p-2 w-full"
-          type="email"
-          id="email"
-          placeholder="Email"
-        />
-      </div>
-      <div className="mb-4">
-        <input
-          className="border border-gray-400 p-2 w-full"
-          type="password"
-          id="password"
-          placeholder="Password"
-        />
-      </div>
-      <button className="bg-black border text-white font-medium py-2 px-4 w-full transition-colors duration-200 hover:bg-white  hover:border-black hover:text-black  ease-in-out">
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input
+        className={`border border-gray-400 p-2  mb-4 w-full ${
+          errors.email ? "border-red-500 " : ""
+        }`}
+        placeholder="Email"
+        type="email"
+        {...register("email", { required: true })}
+      />
+
+      {errors.email && "Email is required"}
+
+      <input
+        className={`border border-gray-400 p-2  mb-4 w-full ${
+          errors.email ? "border-red-500 " : ""
+        }`}
+        {...register("password", { required: true })}
+        type="password"
+        placeholder="Password"
+      />
+
+      {errors.password && "Password is required"}
+
+      <button className="bg-black border text-white font-medium py-2 px-4 w-full">
         Login
       </button>
     </form>
