@@ -1,3 +1,4 @@
+import Router from "next/router";
 import heroImage from "../../../../../public/images/launch.jpeg";
 
 function HeroSection() {
@@ -27,6 +28,7 @@ function HeroSection() {
               className="inline-block px-7 py-3 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded hover:bg-white transition-colors duration-200 focus:outline-none focus:ring-0  hover:text-black  ease-in-out"
               data-mdb-ripple="true"
               data-mdb-ripple-color="light"
+              onClick={() => Router.push("/login")}
             >
               VIEW LAUNCHES
             </button>

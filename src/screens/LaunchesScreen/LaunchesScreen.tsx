@@ -51,23 +51,25 @@ function LaunchesScreen() {
   return (
     <Layout loggedIn={isAuthenticated}>
       <HeroSection />
-      <section className="sm:flex sm:flex-wrap bg-black">
-        {launches &&
-          launches.map((launch) => (
-            <Link
-              key={launch.flight_number}
-              href={`/launches/[launchId]`}
-              as={`/launches/${launch.id}`}
-            >
-              <div className="sm:w-1/2 p-4 cursor-pointer ">
-                <Card
-                  flikr_image={launch.links.flickr.original[0]}
-                  mission_name={launch.name}
-                  launch_date_local={launch.date_local}
-                />
-              </div>
-            </Link>
-          ))}
+      <section className=" bg-black d-flex flex-wrap">
+        <div className="sm:grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+          {launches &&
+            launches.map((launch) => (
+              <Link
+                key={launch.flight_number}
+                href={`/launches/[launchId]`}
+                as={`/launches/${launch.id}`}
+              >
+                <div className=" p-4 cursor-pointer ">
+                  <Card
+                    flikr_image={launch.links.flickr.original[0]}
+                    mission_name={launch.name}
+                    launch_date_local={launch.date_local}
+                  />
+                </div>
+              </Link>
+            ))}
+        </div>
       </section>
     </Layout>
   );

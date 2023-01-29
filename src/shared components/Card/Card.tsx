@@ -16,10 +16,10 @@ function Card({ mission_name, launch_date_local, flikr_image }: CardProps) {
   };
 
   return (
-    <div className="relative bg-black overflow-hidden  ">
+    <div className="relative bg-black overflow-hidden">
       <Image
-        className="w-full h-75 object-cover object-center"
-        src={flikr_image}
+        className="w-full min-h-75 max-h-75 object-cover object-center"
+        src={flikr_image || fallBackImage}
         alt={mission_name}
         onError={handleError}
         width={500}

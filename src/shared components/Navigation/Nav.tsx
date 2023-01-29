@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import spacexSVG from "../../../public/images/spacex-logo.svg";
 
@@ -34,12 +35,11 @@ export default function NavBar({ loggedIn }: Props) {
                 Sign out
               </a>
             ) : (
-              <a
-                href="#"
-                className="inline-block px-7 py-3 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-              >
-                Sign in
-              </a>
+              <Link href="/login" legacyBehavior>
+                <a className="inline-block px-7 py-3 border-2 border-white text-white font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                  Sign in
+                </a>
+              </Link>
             )}
           </div>
         </div>
