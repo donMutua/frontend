@@ -1,5 +1,5 @@
-import LaunchesScreen from "@/screens/LaunchesScreen/LaunchesScreen";
-import Layout from "@/shared components/Layout/Layout";
+import LaunchesScreen from "@/screens/LaunchesScreen/LauncheListScreen";
+import Layout from "@/SharedComponents/Layout/Layout";
 
 function LaunchesListPage() {
   return <LaunchesScreen />;

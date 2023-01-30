@@ -1,4 +1,4 @@
-import LoginForm from "@/shared components/Login/Login";
+import LoginForm from "@/SharedComponents/Login/Login";
 
 function AuthScreen() {
   return (

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import Layout from "@/shared components/Layout/Layout";
+import Layout from "@/SharedComponents/Layout/Layout";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getLaunch } from "@/api/api";

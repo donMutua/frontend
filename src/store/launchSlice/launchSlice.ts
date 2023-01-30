@@ -1,11 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Launch } from "@/interfaces/Launch";
-
-interface LaunchState {
-  launch: Launch;
-  loading: boolean;
-  error: string | null;
-}
+import { LaunchState } from "@/interfaces/Launch";
 
 const initialState: LaunchState = {
   launch: null,

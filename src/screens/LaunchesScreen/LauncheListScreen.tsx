@@ -1,21 +1,17 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import Card from "@/shared components/Card/Card";
-import Layout from "@/shared components/Layout/Layout";
-import { RootState } from "@/store/store";
-
+import Card from "../../SharedComponents/Card/Card";
+import Layout from "@/SharedComponents/Layout/Layout";
 import HeroSection from "./components/HeroSection/HeroSection";
-import { fetchLaunches } from "@/api/api";
-import {
-  setLaunchesListStart,
-  setLaunchesListSuccess,
-  setLaunchesListError,
-} from "@/store/launchSlice/launchesListSlice";
-import { useDispatch } from "react-redux";
+
+import { RootState } from "@/store/store";
+import { fetchLaunches } from "../../api/api";
 import Link from "next/link";
 import { withAuth } from "@/hoc/withAuth";
+import { setLaunchesListSuccess } from "@/store/launchSlice/launchesListSlice";
 
 function LaunchesScreen() {
   const isAuthenticated = useSelector(

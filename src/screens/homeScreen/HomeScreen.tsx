@@ -1,4 +1,4 @@
-import Layout from "@/shared components/Layout/Layout";
+import Layout from "@/SharedComponents/Layout/Layout";
 import HeroSection from "./components/HeroSection/HeroSection";
 
 function LandingPage() {
