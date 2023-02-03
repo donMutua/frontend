@@ -8,7 +8,9 @@ import {
   loginFail,
 } from "../../store/authSlice/authSlice";
 import { login as apiLogin } from "../../api/api";
-import Router from "next/router";
+import Spinner from "../Spinner/Spinner";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 interface FormData {
   email: string;
@@ -18,6 +20,8 @@ interface FormData {
 const LoginForm = () => {
   const dispatch = useDispatch();
   const router = useRouter();
+
+  const { loading, error } = useSelector((state: RootState) => state.auth);
 
   const {
     register,
@@ -42,6 +46,10 @@ const LoginForm = () => {
     }
   };
 
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <input
@@ -65,6 +73,8 @@ const LoginForm = () => {
       />
 
       {errors.password && "Password is required"}
+
+      {error && <p className="text-red-500">{error}</p>}
 
       <button className="bg-black border text-white font-medium py-2 px-4 w-full">
         Login
