@@ -12,6 +12,7 @@ import { fetchLaunches } from "../../api/api";
 import Link from "next/link";
 import { withAuth } from "@/hoc/withAuth";
 import { setLaunchesListSuccess } from "@/store/launchSlice/launchesListSlice";
+import Spinner from "@/SharedComponents/Spinner/Spinner";
 
 function LaunchesScreen() {
   const isAuthenticated = useSelector(
@@ -42,7 +43,7 @@ function LaunchesScreen() {
   );
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   return (

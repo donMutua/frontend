@@ -9,6 +9,7 @@ import { setLaunchSuccess } from "@/store/launchSlice/launchSlice";
 import { RootState } from "@/store/store";
 import { convertDate } from "@/util/covertDate";
 import { withAuth } from "@/hoc/withAuth";
+import Spinner from "@/SharedComponents/Spinner/Spinner";
 
 const fallBackImage =
   "https://images.unsplash.com/photo-1518364538800-6bae3c2ea0f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80";
@@ -36,7 +37,7 @@ const LaunchScreen: React.FC = () => {
   const { launch, loading } = useSelector((state: RootState) => state.launch);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   return (
