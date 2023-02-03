@@ -1,8 +1,12 @@
 import axios from "axios";
 import Cookies from "js-cookie";
+import getConfig from "next/config";
+
+const { publicRuntimeConfig } = getConfig();
+const API_URL = publicRuntimeConfig.API_URL;
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: API_URL,
 });
 
 api.interceptors.request.use((config) => {

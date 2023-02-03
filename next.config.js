@@ -20,4 +20,13 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+const isProduction = process.env.NODE_ENV === "production";
+
+module.exports = {
+  ...nextConfig,
+  publicRuntimeConfig: {
+    API_URL: isProduction
+      ? "https://spacex-api-v4to.onrender.com/api/v1"
+      : "http://localhost:4000/api/v1",
+  },
+};
