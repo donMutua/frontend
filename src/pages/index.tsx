@@ -1,4 +1,4 @@
-import LandingPage from "@/screens/HomeScreen/LandingPage";
+import LandingPage from "@/screens/LandingPage/LandingPage";
 
 function Home() {
   return (
